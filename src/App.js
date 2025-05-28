@@ -1,17 +1,17 @@
-import React from 'react';
-import './App.css';
-import Sidebar from './Components/Sidebar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DashboardPage from './Pages/DashboardPage';
-import UsersPage from './Pages/UsersPage';
-import QuizPage from './Pages/QuizPage';
-import SettingsPage from './Pages/SettingsPage';
-import CoursPage from './Pages/CoursPage';
+import React from "react";
+import "./App.css";
+import Sidebar from "./Components/Sidebar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import DashboardPage from "./Pages/DashboardPage";
+import UsersPage from "./Pages/UsersPage";
+import QuizPage from "./Pages/QuizPage";
+import SettingsPage from "./Pages/SettingsPage";
+import CoursPage from "./Pages/CoursPage";
 
 function App() {
   return (
     <Router>
-      <div style={{ position: 'relative', height: '100vh' }}>
+      <div style={{ position: "relative", height: "100vh" }}>
         {/* Background */}
         <div className="background">
           <div className="point point1"></div>
@@ -28,7 +28,8 @@ function App() {
         {/* Contenu principal */}
         <div className="content">
           <Routes>
-            <Route path="/" element={<DashboardPage />} /> {/* Page par défaut */}
+            <Route path="/" element={<DashboardPage />} />{" "}
+            {/* Page par défaut */}
             <Route path="/Dashboard" element={<DashboardPage />} />
             <Route path="/Users" element={<UsersPage />} />
             <Route path="/Quiz" element={<QuizPage />} />

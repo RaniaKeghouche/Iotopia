@@ -1,0 +1,718 @@
+/* Main course page container */
+.course-page {
+  margin-top: 30px;
+  padding: 20px;
+  width: 100%;
+  max-width: 75%; /* Keep as is */
+  margin: 0 auto;
+  color: white;
+  margin-left: 280px;
+}
+
+/* Course header with icon and button */
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%; /* Ensure full width */
+  opacity: 0;
+  animation: slideDown 0.6s ease forwards;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Professional icon styling */
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  background-color: #352b5a; /* Darker, more professional color */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.icon-circle:hover {
+  background-color: #433775;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.icon-circle svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Course title - increased size */
+.course-header h2 {
+  font-size: 28px; /* Increased from 24px */
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Professional button styling with enhanced hover animations */
+.add-button {
+  background-color: #28b463;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  min-width: 180px;
+  height: 46px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* New pulsing glow effect */
+.add-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  opacity: 0;
+  transform: scale(0.5);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: -1;
+}
+
+.add-button:hover::before {
+  opacity: 0.2;
+  transform: scale(2);
+}
+
+/* Enhanced hover state */
+.add-button:hover {
+  background-color: #219653;
+  box-shadow: 0 4px 12px rgba(33, 150, 83, 0.6);
+  transform: translateY(-3px) scale(1.03);
+  letter-spacing: 1px;
+}
+
+.add-button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 5px rgba(40, 180, 99, 0.3);
+}
+
+/* Create a shine effect that moves across the button */
+.add-button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg) translateX(-100%) translateY(-100%);
+  transition: all 0.6s ease;
+  z-index: 2;
+}
+
+.add-button:hover::after {
+  transform: rotate(45deg) translateX(100%) translateY(100%);
+}
+
+/* Update icon animation on hover */
+.check-icon {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.add-button:hover .check-icon {
+  transform: rotate(360deg) scale(1.2);
+  margin-right: 14px;
+}
+
+.check-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Form container with two columns */
+.form-container {
+  display: flex;
+  gap: 20px;
+  width: 100%; /* Ensure full width */
+  align-items: stretch; /* Make both columns same height */
+}
+
+/* Left column (form inputs) with professional hover animation */
+.form-left {
+  flex: 1;
+  background-color: rgba(55, 55, 102, 0.4);
+  border-radius: 8px;
+  padding: 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 0;
+  animation: slideInLeft 0.6s ease 0.2s forwards;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.form-left:hover {
+  background-color: rgba(60, 60, 110, 0.45);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #6c5ce7;
+  transform: translateY(-4px);
+}
+
+/* Right column (description) with professional hover animation */
+.form-right {
+  flex: 1;
+  background-color: rgba(55, 55, 102, 0.4);
+  border-radius: 8px;
+  padding: 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: slideInRight 0.6s ease 0.4s forwards;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.form-right:hover {
+  background-color: rgba(60, 60, 110, 0.45);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #6c5ce7;
+  transform: translateY(-4px);
+}
+
+/* Remove previous after pseudo-elements */
+.form-left::after,
+.form-right::after {
+  content: none;
+}
+
+/* Remove the previous complex corner glow effects */
+.form-left::before,
+.form-right::before,
+.form-left::after,
+.form-right::after {
+  content: none;
+}
+
+/* Add subtle top highlight for professional look */
+.form-left::after,
+.form-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.form-left:hover::after,
+.form-right:hover::after {
+  opacity: 1;
+}
+
+/* Input group styling */
+.input-group {
+  margin-bottom: 30px; /* More space between inputs */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Form labels - increased size and bold */
+label {
+  display: block;
+  font-size: 23px;
+  font-weight: 600; /* Increased from 500 to 600 for bolder text */
+  margin-bottom: 15px;
+  color: white;
+}
+
+/* Input fields - with attractive hover/focus animations */
+.form-input {
+  width: 100%;
+  background-color: rgba(75, 75, 135, 0.4);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 12px 15px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  height: 60px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-input:hover {
+  background-color: rgba(85, 85, 155, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.form-input:focus {
+  border-color: #6c5ce7;
+  background-color: rgba(95, 95, 165, 0.4);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Style for placeholders */
+::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+
+/* Description header with character count */
+.description-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%; /* Ensure full width */
+}
+
+.char-count {
+  font-size: 18px; /* Increased from 16px */
+  font-weight: 500; /* Added font weight for bolder text */
+  position: absolute;
+  top: 25px;
+  right: 25px; /* Position in top right corner like in image */
+  color: white;
+}
+
+/* Description textarea - with matching hover/focus animations */
+.description-input {
+  width: 100%;
+  flex-grow: 1; /* Fill available space */
+  min-height: 200px; /* Minimum height */
+  background-color: rgba(75, 75, 135, 0.4);
+  border: 2px solid transparent;
+  border-radius: 6px;
+  padding: 12px 15px;
+  color: white;
+  font-size: 17px; /* Increased from 16px */
+  font-weight: 500; /* Added font weight for bolder text */
+  resize: none;
+  font-family: monospace; /* Monospace font like in image */
+  box-sizing: border-box; /* Include padding in width calculation */
+  overflow-y: auto; /* Add scrolling if needed */
+  transition: all 0.3s ease;
+}
+
+.description-input:hover {
+  background-color: rgba(85, 85, 155, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.description-input:focus {
+  border-color: #6c5ce7;
+  background-color: rgba(95, 95, 165, 0.4);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Animated placeholder transition */
+.form-input::placeholder,
+.description-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.form-input:focus::placeholder,
+.description-input:focus::placeholder {
+  transform: translateX(10px);
+  opacity: 0.7;
+}
+
+/* Form group animations */
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-group::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.input-group:hover::after {
+  width: 100%;
+  left: 0;
+  opacity: 1;
+}
+
+/* Make sure the app container allows full width */
+#root,
+body,
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Ensure the content area takes full width */
+.content {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Add spacing between sections */
+.section-spacing {
+  margin-top: 70px;
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* IoT floating animated elements - Enhanced version */
+.iot-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.iot-element {
+  position: absolute;
+  opacity: 0.15;
+  filter: blur(1px);
+}
+
+.iot-circle {
+  border: 2px solid rgba(108, 92, 231, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(108, 92, 231, 0.3);
+}
+
+.iot-inner-circle {
+  background-color: rgba(108, 92, 231, 0.2);
+  border-radius: 50%;
+}
+
+.iot-dot {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.iot-line {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(108, 92, 231, 0),
+    rgba(108, 92, 231, 0.6),
+    rgba(108, 92, 231, 0)
+  );
+}
+
+.iot-pulse {
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(108, 92, 231, 0.4) 0%,
+    rgba(108, 92, 231, 0) 70%
+  );
+  animation: pulse-animation 3s infinite ease-in-out;
+}
+
+.iot-data-packet {
+  background-color: rgb(40, 180, 99);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(40, 180, 99, 0.8);
+}
+
+.iot-cloud {
+  background: radial-gradient(
+      ellipse at 50% 30%,
+      rgba(255, 255, 255, 0.15),
+      rgba(108, 92, 231, 0.1)
+    ),
+    radial-gradient(
+      ellipse at 50% 70%,
+      rgba(255, 255, 255, 0.1),
+      rgba(40, 180, 99, 0.1)
+    );
+  border-radius: 50% 50% 30% 30% / 60% 60% 40% 40%;
+}
+
+/* Enhanced animations */
+@keyframes pulse-animation {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(10px, 15px) rotate(5deg);
+  }
+  66% {
+    transform: translate(-10px, 5px) rotate(-3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes data-transmit {
+  0% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-border {
+  0% {
+    border-color: rgba(108, 92, 231, 0.3);
+  }
+  50% {
+    border-color: rgba(108, 92, 231, 0.8);
+  }
+  100% {
+    border-color: rgba(108, 92, 231, 0.3);
+  }
+}
+
+@keyframes line-pulse {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes data-flow {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(
+        calc(cos(var(--angle, 0deg)) * var(--distance, 100px))
+      )
+      translateY(calc(sin(var(--angle, 0deg)) * var(--distance, 100px)));
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cloud-pulse {
+  0% {
+    opacity: 0.08;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.15;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.08;
+    transform: scale(1);
+  }
+}
+
+/* Add dynamic gradient to page background */
+.course-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(108, 92, 231, 0.1),
+      transparent 40%
+    ),
+    radial-gradient(circle at 80% 80%, rgba(40, 180, 99, 0.1), transparent 40%),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(60, 120, 200, 0.05),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(200, 120, 60, 0.05),
+      transparent 30%
+    );
+  animation: gradient-shift 30s infinite ease-in-out alternate;
+  pointer-events: none;
+  z-index: -2;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+  100% {
+    background-position: 10% 10%, -10% -10%, -10% 10%, 10% -10%;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(78, 136, 208, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(78, 136, 208, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(78, 136, 208, 0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
